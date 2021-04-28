@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>List</title>
+</head>
+<body>
+<h1>MyVideogameList</h1>
+<table>
+    <thead>
+    <tr>
+        <th>id</th>
+        <th>Title</th>
+        <th>platform</th>
+        <th>launchdate</th>
+
+    </tr></br>
+    </thead>
+    <tbody>
+    <tr th:each="game : ${listGames}">
+        <td th:text="${game.getId()}">ID</td>
+        <td th:text="${game.getTitle()}">League of legends</td>
+        <td th:text="${game.getPlatform()}">PS4,PC,XBOX</td>
+        <td th:text="${game.getLaunchDate()}">02-02-1999</td>
+        <td><a th:href="@{/edit/{id}(id=${game.id})}">Edit</a> </td>
+        <td><a th:href="@{/delete(id=${game.id})}">Delete</a> </td><br/>
+
+    </tr>
+    </tbody>
+</table>
+<a href="/new">Afegir empleats</a><br/>
+<div class="form-actions">
+    <form th:action="@{/logout}" method="post">
+        <input type="submit" value="Sortir (Sign Out)"/>
+    </form>
+</div>
+</body>
+</html>

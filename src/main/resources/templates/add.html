@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Game</title>
+</head>
+<body>
+<form method="post" action="#" th:action="${gameform.id!=0}?@{/edit/submit}:@{/new/submit}"  th:object="${gameform}">
+    id <input type="text" id="id" placeholder="1" th:field="*{id}" th:attrappend="readonly=${gameform.id!=0}?'readonly':null"><br/>
+    Title<input type="text" id="title" placeholder="Call of duty" th:field="*{title}"><br/>
+    Platform <input type="text" id="platform" placeholder="PS4" th:field="*{platform}"><br/>
+    LaunchDate <input type="text" id="launchdate" placeholder="02-02-1998" th:field="*{launchDate}"><br/>
+    <button type="submit">Add</button>
+
+</form>
+
+</body>
+</html>
